@@ -1,14 +1,28 @@
 package crazzyOnz.hibernate.dto;
 
+import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
-@Entity  
+@Entity(name = "USER_DETAILS")
 public class UserDetails {
 
 	@Id
+	@Column(name = "USER_ID")
 	private int userId;
+	@Column(name = "USER_NAME")
 	private String userName;
+    @Embedded
+	private Address address;
+
+	public Address getAddress() { 
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
+	}
 
 	public int getUserId() {
 		return userId;
